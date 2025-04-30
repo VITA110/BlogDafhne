@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dafhne Saenz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/usuario.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Estilos adicionales para la página de materiales */
+        .materials-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .materials-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .materials-header h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .materials-header p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 30px;
+        }
+
+        .material-card {
+            background-color: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .material-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .material-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .material-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .material-card:hover .material-image img {
+            transform: scale(1.05);
+        }
+
+        .material-content {
+            padding: 20px;
+        }
+
+        .material-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .material-description {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .material-details {
+            margin-top: 15px;
+        }
+
+        .material-detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .material-detail-item i {
+            color: #f8b9d4;
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        .tips-section {
+            background-color: #fff9fb;
+            padding: 50px 0;
+            margin-top: 60px;
+        }
+
+        .tips-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .tips-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tips-header h2 {
+            font-size: 2.3rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-gap: 30px;
+        }
+
+        .tip-card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tip-icon {
+            font-size: 2rem;
+            color: #f8b9d4;
+            margin-bottom: 15px;
+        }
+
+        .tip-title {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .tip-content {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .hero {
+            background-color: #fdf6f9;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-image {
+            width: 50%;
+            max-width: 600px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-image img {
+            width: 50%;
+            height: auto;
+            display: block;
+        }
+
+        .hero-text {
+            max-width: 800px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .hero-text p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        /* Sección de recursos adicionales */
+        .resources-section {
+            background-color: #fff;
+            padding: 60px 0;
+        }
+
+        .resources-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .resources-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .resources-header h2 {
+            font-size: 2.3rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .resources-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resource-item {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .resource-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-icon {
+            font-size: 2rem;
+            color: #f8b9d4;
+            margin-right: 20px;
+        }
+
+        .resource-content {
+            flex: 1;
+        }
+
+        .resource-title {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .resource-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1><span>Información d</span>e Materiales</h1>
+                    </a>
+                </div>
+                <div class="back-button">
+                    <a href="index.html"><i class="fas fa-chevron-left"></i></a>
+                </div>
+                <div class="menu-items">
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="info_materiales.html" class="active">Información de Materiales</a></li>
+                        <li><a href="galeria.html">Galería</a></li>
+                        <li><a href="propositos.html">Propositos Lúdicos</a></li>
+                        <li><a href="sobre_mi.html">Sobre Mí</a></li>
+                    </ul>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fas fa-heart"></i></a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-image">
+                    <img src="img/estuche.png" alt="Materiales de manualidades">
+                </div>
+                <div class="hero-text">
+                    <h1>Descubre el Mundo de los Materiales</h1>
+                    <p>En el nivel preescolar, los materiales didácticos son herramientas
+                        fundamentales que enriquecen el aprendizaje, estimulan la participación
+                        activa de los niños y favorecen el desarrollo de habilidades cognitivas, motoras y
+                        socioemocionales. En este blog compartiré los distintos tipos de materiales didácticos
+                        utilizados en el aula, sus características, sus usos, y ejemplos de materiales que elaboré
+                        durante mis jornadas de práctica como futura docente de educación preescolar.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección principal de materiales -->
+    <section class="materials-container">
+        <div class="materials-header">
+            <h2>Tipos de materiales didácticos en educación preescolar</h2>
+        </div>
+
+        <div class="materials-grid">
+            <!-- Material 1 -->
+            <div class="material-card">
+                <div class="material-image">
+                    <img src="img/galeria/gal (18).jpg" alt="Material 1">
+                </div>
+                <div class="material-content">
+                    <h3 class="material-title">Materiales impresos</h3>
+                    <p class="material-description">Apoyo en el reconocimiento de letras, números, colores y formas.
+                        Estimulan el desarrollo del lenguaje y la lectoescritura emergente.
+                    </p>
+                    <div class="material-details">
+                        <div class="material-detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Faciles de manipular.</span>
+                        </div>
+                        <div class="material-detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Accesibles y versátiles.</span>
+                        </div>
+                        <div class="material-detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Comercionales o elaborados por la docente.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material 2 -->
+            <div class="material-card">
+                <div class="material-image">
+                    <img src="img/galeria/gal (13).jpg" alt="Material 2">
+                </div>
+                <div class="material-content">
+                    <h3 class="material-title">Materiales manipulativos</h3>
+                    <p class="material-description">Clasificación, seriación, conteo, construcción de patrones, y
+                        desarrollo de la motricidad fina. .</p>
+                    <div class="material-details">
+                        <div class="material-detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Diseñados para ser tocados, movidos o armados</span>
+                        </div>
+                        <div class="material-detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Favorecen el desarrollo psicomotoro</span>
+                        </div>
+                        <div class="material-detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Compresión de concepstos abstractos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material 3 -->
+            <div class="material-card">
+                <div class="material-image">
+                    <img src="img/galeria/gal (6).jpg" alt="Material 3">
+                </div>
+                <div class="material-content">
+                    <h3 class="material-title">Materiales audiovisuales</h3>
+                    <p class="material-description">Introducir nuevos temas, reforzar contenidos o motivar la
+                        participación.
+                        .</p>
+                    <div class="material-details">
+                        <div class="material-detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Utilizan sonido e imagen para captar la atención de los niños</span>
+                        </div>
+                        <div class="material-detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Promueven el aprendizaje visual y auditivo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material 4 -->
+            <div class="material-card">
+                <div class="material-image">
+                    <img src="img/galeria/gal (16).jpg" alt="Material 4">
+                </div>
+                <div class="material-content">
+                    <h3 class="material-title">Materiales reciclados o de elaboración casera</h3>
+                    <p class="material-description">Desarrollar la creatividad, conciencia ambiental, y el juego
+                        simbólico.
+                    </p>
+                    <div class="material-details">
+                        <div class="material-detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Económico y ecólogicos</span>
+                        </div>
+                        <div class="material-detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Se adaptan a las necesidades del grupo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de consejos -->
+    <section class="tips-section">
+        <div class="tips-container">
+            <div class="tips-header">
+                <h2>Conclusión</h2>
+                <p>El uso de materiales didácticos adecuados y creativos permite transformar el aula en un espacio
+                    dinámico, significativo y adaptado a las necesidades de cada niño. Como futuras docentes, nuestra
+                    labor no solo consiste en enseñar contenidos, sino también en diseñar experiencias educativas que
+                    sean motivadoras y enriquecedoras, a través del uso consciente y estratégico de los
+                    materiales didácticos.</p>
+            </div>
+</body>
+</html>
